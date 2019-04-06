@@ -1,0 +1,35 @@
+﻿@model LiveChat.user
+<style>
+   
+    form{
+        
+    }
+</style>
+
+<br />
+@using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+{
+    <form>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+
+            @Html.EditorFor(user => user.userName)
+            @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+            <br />
+            <small id="Help" class="form-text text-muted">We'll never share your username with anyone else.</small>
+            @*<input type="text" class="form-control" id="exampleInputusername" aria-describedby="username" placeholder="Enter Username" required>*@
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            @Html.EditorFor(user => user.userpassword)
+            @Html.ValidationMessageFor(model => model.userpassword, "", new { @class = "text-danger" })
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Login</button>
+        <br />
+        <label for="error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+
+    </form>
+}
