@@ -1,1 +1,2 @@
-dotNetBlog
+
+Blog-like application in development.
