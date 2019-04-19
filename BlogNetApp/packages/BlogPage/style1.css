@@ -1,0 +1,42 @@
+﻿form {
+    padding: 15px;
+}
+
+body {
+    background-color: #000d1a;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+.container {
+    background-image: url('blog.jpg');
+    background-position: center;
+    height: 600px;
+    width: 460px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#Username {
+    margin-top: 20px;
+
+}
+
+#Password {
+    margin-top:5px;
+   
+}
+.input {
+    height: 270px;
+    width: 330x;
+    background-color: rgba(119,119,119,0.5);
+    margin-top: 150px;
+    padding: 20px;
+}

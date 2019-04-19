@@ -1,0 +1,63 @@
+﻿@model BlogNetApp.Models.User
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/style1.css")
+
+
+<!doctype html>
+<head>
+    <title>Login</title>
+    
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+
+    <div class="container">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+        <form>
+            <div class="input">
+                <div class="form-group row">
+
+                    <div class="col-md-6">
+                        <label id="Username">Username</label>
+                    </div>
+                    <div class="col-md-6" id="password">
+                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { InputType = "text", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label id="password">Password</label>
+                    </div>
+                    <div class="col-md-6" id="Password">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { InputType = "password", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+
+                <div class="form-group row">
+                    <input type="submit" class=" btn btn-lg btn-default" value="Login">
+                     @Html.ActionLink("Don't have an account? Sign up now! ", "Create", "User", new { area = "" }, new { @class = "navbar-brand col-md-12" })
+                </div>
+               
+            </div>
+            
+        </form>
+        
+           
+           
+       
+        
+
+        }
+    </div>
+</body>
+</html>

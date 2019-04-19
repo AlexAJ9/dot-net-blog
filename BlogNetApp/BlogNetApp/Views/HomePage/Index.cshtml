@@ -1,0 +1,86 @@
+﻿@model IEnumerable<BlogNetApp.Models.Post>
+@{
+    Layout = null;
+}
+@{
+    
+    ViewBag.Title = "this.Title";
+}
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/HomePage.css")
+
+<!DOCTYPE html>
+
+
+<head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+
+
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+
+                    <li>@Html.ActionLink("Users", "Index", "User")</li>
+                    <li>@Html.ActionLink("Posts", "Index", "Post")</li>
+                    <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+
+                </ul>
+                @Html.ActionLink("Log out!", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Hey there fuckface</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+
+    <div class="main container">
+        @foreach (var item in Model)
+        {
+            <div class="Post">
+                <div class="meta">
+                    <h2 class="col-md-12"> Title: @Html.DisplayFor(modelItem => item.Title)</h2>
+                    <div class="row desc">
+                        <h4 class="col-md-4"> Category: @Html.DisplayFor(modelItem => item.Category.CategoryName)</h4>
+                        <h4 class="col-md-4">Posted by:  @Html.DisplayFor(modelItem => item.User.Username)</h4>
+                        <h4 class="col-md-4">Tag: @Html.DisplayFor(modelItem => item.Tag)</h4>
+                    </div>
+
+                </div>
+                <p id="1">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </p>
+
+
+
+
+                <hr />
+            </div>
+        }
+        <p>Create new  @Html.ActionLink("post", "Create", "Post")!</p>
+
+
+    </div>
+
+
+
+
+</body>
