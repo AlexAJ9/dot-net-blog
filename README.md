@@ -1,2 +1,2 @@
 
-Blog-like application in development.
+Web Blog
